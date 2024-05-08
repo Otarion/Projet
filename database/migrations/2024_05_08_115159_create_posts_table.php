@@ -1,5 +1,7 @@
 <?php
 
+//Permet de gérer les modifications de la BDD Post de manière organisée et versionnée
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

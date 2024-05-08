@@ -1,5 +1,7 @@
 <?php
 
+//Permet de remplir la BDD User avec des données factices
+
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
