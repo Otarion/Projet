@@ -7,7 +7,8 @@
         <title>{{ config('app.name') }}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">        
+        <link href="https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">      
+        <link rel="stylesheet" href="./resources/css/styles.css" type="text/css"/>
         @vite('resources/css/app.css')
     </head>
 
@@ -38,14 +39,14 @@
     {{-- Menu déroulant pour mobile --}}
     <div :class="{ 'hidden': !open, 'block': open }" :id="'navbar-hamburger-' + open" class="w-full">
         <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700" style="text-align: center">
-            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;" href="#" aria-current="page">Accueil</a></li>
-            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Encyclopédie</a></li>
-            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Actualités</a></li>
-            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">A propos</a></li>
-            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Se connecter/S'inscrire</a></li>
-            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Mon compte</a></li>
-            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Gestion des postes</a></li>
-            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Gestion des comptes</a></li>
+            <li><a id="scroll" style="" href="#" aria-current="page">Accueil</a></li>
+            <li><a id="scroll" style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Encyclopédie</a></li>
+            <li><a id="scroll" style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Actualités</a></li>
+            <li><a id="scroll" style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">A propos</a></li>
+            <li><a id="scroll" style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Se connecter/S'inscrire</a></li>
+            <li><a id="scroll" style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Mon compte</a></li>
+            <li><a id="scroll" style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Gestion des postes</a></li>
+            <li><a id="scroll" style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Gestion des comptes</a></li>
         </ul>
     </div>
 </nav>
