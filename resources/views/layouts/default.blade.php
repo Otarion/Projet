@@ -14,46 +14,58 @@
 
     <body class="font-judson">
 {{-- Header --}}
-<nav style="background-color: rgb(62, 38, 16)" x-data="{ searchOpen: false, open: false }">
+<nav style="background-color: rgb(62, 38, 16)" x-data="{ open: false}" x-cloack>
     <div style="max-width: 1280px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin: 0 auto; padding: 1rem; position: relative;">
 
         {{-- Bouton de recherche --}}
-        <button @click="searchOpen = !searchOpen" style="display: flex; align-items: center; gap: 0.75rem;" type="button">
+        <button 
+        @click="searchOpen = !searchOpen" 
+        style="display: flex; align-items: center; gap: 0.75rem;" type="button">
             <svg style="height: 30px; width: 30px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e8eaed"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
         </button>
 
         {{-- Barre de recherche --}}
-        <div x-show="searchOpen" @click.away="searchOpen = false" style="display: flex; align-items: center; background-color: white; border: 1px solid #ccc; padding: 0.5rem; height: 2em; width: 15em;">
+        <div 
+        x-show="searchOpen" 
+        @click.away="searchOpen = false" 
+        style="display: flex; visibility:hidden ; align-items: center; background-color: white; border: 1px solid #ccc; padding: 0.5rem; height: 2em; width: 15em;">
             <input type="text" placeholder="Rechercher..." style="width: 15em;">
             <button>🔍</button>
         </div>
 
-        {{-- Bouton de menu --}}
-        <button @click="open = !open" style="display: flex; align-items: center; justify-content: center; padding: 0.5rem; width: 2.5rem; height: 2.5rem; font-size: 0.875rem; color: #e8eaed; border-radius: 0.375rem; background-color: transparent; border: none; cursor: pointer; transition: background-color 0.3s, border-color 0.3s; outline: none;" :aria-expanded="open.toString()" aria-controls="navbar-hamburger">
-            <svg :class="{ 'rotate-180': open }" style="color: white; height: 30px; width: 30px; transition: transform 0.3s;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-            </svg>
-        </button>
-    </div>
+{{-- Bouton de menu --}}
+<button 
+    @click="open = !open" 
+    @click.away="open = false"
+    style="display: flex; align-items: center; justify-content: center; padding: 0.5rem; width: 2.5rem; height: 2.5rem; font-size: 0.875rem; color: #e8eaed; border-radius: 0.375rem; background-color: transparent; border: none; cursor: pointer; transition: background-color 0.3s, border-color 0.3s; outline: none;" :aria-expanded="open.toString()" aria-controls="navbar-hamburger">
+    
+    <svg :class="{ 'rotate-180': open }" style="color: white; height: 30px; width: 30px; transition: transform 0.3s;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+    </svg>
+</button>
 
-    {{-- Menu déroulant pour mobile --}}
-    <div :class="{ 'hidden': !open, 'block': open }" :id="'navbar-hamburger-' + open" class="w-full">
-        <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700" style="text-align: center">
-            <li><a id="scroll" style="" href="#" aria-current="page">Accueil</a></li>
-            <li><a id="scroll" style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Encyclopédie</a></li>
-            <li><a id="scroll" style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Actualités</a></li>
-            <li><a id="scroll" style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">A propos</a></li>
-            <li><a id="scroll" style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Se connecter/S'inscrire</a></li>
-            <li><a id="scroll" style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Mon compte</a></li>
-            <li><a id="scroll" style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Gestion des postes</a></li>
-            <li><a id="scroll" style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Gestion des comptes</a></li>
-        </ul>
     </div>
 </nav>
-        
-        {{-- Colonne centrale --}}
-        <main>
+    {{-- Menu déroulant pour mobile --}}
+        <ul 
+        x-show="open"
+        class="flex-col font-medium mt-4 rounded-lg" style="text-align: center; background-color: rgb(62,38,16); color:white; display:block; visibility: hidden;">
+            <li><a id="scroll" style="" href="#" aria-current="page">Accueil</a></li>
+            <li><a id="scroll" style="padding: 0.5rem 0.75rem;">Encyclopédie</a></li>
+            <li><a id="scroll" style="padding: 0.5rem 0.75rem">Actualités</a></li>
+            <li><a id="scroll" style="padding: 0.5rem 0.75rem;">A propos</a></li>
+            <li><a id="scroll" style="padding: 0.5rem 0.75rem;">Se connecter/S'inscrire</a></li>
+            <li><a id="scroll" style="padding: 0.5rem 0.75rem;">Mon compte</a></li>
+            <li><a id="scroll" style="padding: 0.5rem 0.75rem;">Gestion des postes</a></li>
+            <li><a id="scroll" style="padding: 0.5rem 0.75rem;">Gestion des comptes</a></li>
+        </ul>
 
+        
+        <main style="display: flex; flex-direction: column; align-items: center;">
+            {{-- Banderole --}}
+            <div style="background-color: rgb(135,115,106); text-align: center; width: 27em;">
+                <a style="color: white; font-size: xx-large; font-weight: bold;">L'Odyssée d'Adénone</a>
+            </div>
             {{-- Carrousel --}}
             <div id="default-carousel" class="relative w-full" data-carousel="slide">
                 <!-- Carousel wrapper -->
@@ -105,33 +117,35 @@
                     </span>
                 </button>
             </div>
-            
-
+                    
             {{-- Bloc des info secondaires--}}
-            <div style="weight: 10em; border: 1px solid rgb(62,38,16); margin-bottom: 1em;"> 
-                <h1 style="text-align: center; background-color: rgb(62, 38, 16); color: rgb(255, 235,222); font-size: larger;">Autres actualités</h1>
-                <div style="background-color: rgb(165,165,165);">
-                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
-                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
-                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
-                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
-                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+            <div style="width: 23em; border: 1px solid rgb(62,38,16); margin-bottom: 1em;"> 
+                <h1 style="text-align: center; background-color: rgb(62, 38, 16); color: rgb(255, 235,222); font-size: larger;">
+                    Autres actualités</h1>
+                <div style="background-color: rgb(165,165,165); display: flex; flex-direction: column; align-items: center;">
+                    <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
                 </div>
             </div>
-
+        
             {{-- Bloc des maj --}}
-            <div style="weight: 10em; border: 1px solid rgb(62,38,16); margin-bottom: 1em;"> 
-                <h1 style="text-align: center; background-color: rgb(62, 38, 16); color: rgb(255, 235,222); font-size: larger;">Mises à jours</h1>
-                <div style="background-color: rgb(165,165,165);">
-                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
-                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
-                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
-                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
-                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+            <div style="width: 23em; border: 1px solid rgb(62,38,16); margin-bottom: 1em;"> 
+                <h1 style="text-align: center; background-color: rgb(62, 38, 16); color: rgb(255, 235,222); font-size: larger;">
+                    Mises à jours</h1>
+                <div style="background-color: rgb(165,165,165); display: flex; flex-direction: column; align-items: center;">
+                    <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
                 </div>
             </div>
-
         </main>
+        
+
         {{-- Footer avec réseaux sociaux et liens de conditions générales --}}
         <footer style="max-width: 1280px; max-height: 75px; display: flex; justify-content: space-between; align-items: center; margin: 0 auto; padding: 1rem; position: relative; background-color: rgb(135, 115, 106)">
             {{-- Logo --}}
