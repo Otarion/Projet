@@ -21,6 +21,9 @@ export default {
                 judson: ['"Judson"', ...defaultTheme.fontFamily.sans],      
             },
         },
+        color:{
+            marron: 'rgb(62, 38, 16)',
+        }
     },
 
     plugins: [

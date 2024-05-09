@@ -12,6 +12,71 @@
     </head>
 
     <body>
-        <p class="font-judson">Hello</p>
+{{-- Header --}}
+<nav style="background-color: rgb(62, 38, 16)" x-data="{ open: false }">
+    <div style="max-width: 1280px; display: flex; flex-wrap: wrap; justify-content: space-between; margin: 0 auto; padding: 1rem; position: relative;">
+        
+        {{-- Bouton de recherche --}}
+        <button style="display: flex; align-items: center; gap: 0.75rem; flex-direction: rtl-reverse;" href="#" type="button">
+            <svg style="height: 30px; width: 30px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e8eaed"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+        </button>
+    
+        {{-- Bouton de menu --}}
+        <button @click="open = !open" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.5rem; width: 2.5rem; height: 2.5rem; font-size: 0.875rem; color: #e8eaed; border-radius: 0.375rem; background-color: transparent; border: none; cursor: pointer; transition: background-color 0.3s, border-color 0.3s; outline: none;" :aria-expanded="open.toString()" aria-controls="navbar-hamburger">
+            <svg :class="{ 'rotate-180': open }" style="color: white; height: 30px; width: 30px; transition: transform 0.3s;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </button>
+    </div>
+
+        {{-- Menu déroulant pour mobile --}}
+        <div :class="{ 'hidden': !open, 'block': open }" :id="'navbar-hamburger-' + open" class="w-full">
+            <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                <li>
+                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;" href="#" aria-current="page">
+                            Accueil</a>
+                        </li>
+                        <li>
+                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">
+                                Encyclopédie</a>
+                        </li>
+                        <li>
+                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">
+                                Actualités</a>
+                        </li>
+                        <li>
+                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">
+                                A propos</a>
+                        </li>
+                        <li>
+                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">
+                                Se connecter/S'inscrire</a>
+                        </li>
+                        <li>
+                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">
+                                Mon compte</a>
+                        </li>
+                        <li>
+                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">
+                                Gestion des postes</a>
+                        </li>
+                        <li>
+                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">
+                                Gestion des comptes</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        {{-- Colonne centrale --}}
+        <div>
+
+        </div>
+        {{-- Footer avec réseaux sociaux et liens de conditions générales --}}
+        <footer>
+
+        </footer>
+
     </body>
 </html>
