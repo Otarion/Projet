@@ -13,21 +13,20 @@
 
     <body class="font-judson">
 {{-- Header --}}
-<nav style="background-color: rgb(62, 38, 16)" x-data="{ searchOpen: false }">
-    <div style="max-width: 1280px; max-height:75px ; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin: 0 auto; padding: 1rem; position: relative;">
-        
+<nav style="background-color: rgb(62, 38, 16)" x-data="{ searchOpen: false, open: false }">
+    <div style="max-width: 1280px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin: 0 auto; padding: 1rem; position: relative;">
+
         {{-- Bouton de recherche --}}
         <button @click="searchOpen = !searchOpen" style="display: flex; align-items: center; gap: 0.75rem;" type="button">
             <svg style="height: 30px; width: 30px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e8eaed"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
         </button>
 
         {{-- Barre de recherche --}}
-        <div x-show="searchOpen" @click.away="searchOpen = false" style="display: flex; align-items: center; background-color: white; border: 1px solid #ccc; padding: 0.5rem;">
-            {{-- Insérez votre code HTML pour la barre de recherche ici --}}
-            <input type="text" placeholder="Rechercher..." style="width: 100px; padding: 0.5rem;">
-            <button style="padding: 0.5rem;">🔍</button>
+        <div x-show="searchOpen" @click.away="searchOpen = false" style="display: flex; align-items: center; background-color: white; border: 1px solid #ccc; padding: 0.5rem; height: 2em; width: 15em;">
+            <input type="text" placeholder="Rechercher..." style="width: 15em;">
+            <button>🔍</button>
         </div>
-        
+
         {{-- Bouton de menu --}}
         <button @click="open = !open" style="display: flex; align-items: center; justify-content: center; padding: 0.5rem; width: 2.5rem; height: 2.5rem; font-size: 0.875rem; color: #e8eaed; border-radius: 0.375rem; background-color: transparent; border: none; cursor: pointer; transition: background-color 0.3s, border-color 0.3s; outline: none;" :aria-expanded="open.toString()" aria-controls="navbar-hamburger">
             <svg :class="{ 'rotate-180': open }" style="color: white; height: 30px; width: 30px; transition: transform 0.3s;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -36,45 +35,20 @@
         </button>
     </div>
 
-        {{-- Menu déroulant pour mobile --}}
-        <div :class="{ 'hidden': !open, 'block': open }" :id="'navbar-hamburger-' + open" class="w-full">
-            <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                <li>
-                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;" href="#" aria-current="page">
-                            Accueil</a>
-                        </li>
-                        <li>
-                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">
-                                Encyclopédie</a>
-                        </li>
-                        <li>
-                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">
-                                Actualités</a>
-                        </li>
-                        <li>
-                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">
-                                A propos</a>
-                        </li>
-                        <li>
-                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">
-                                Se connecter/S'inscrire</a>
-                        </li>
-                        <li>
-                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">
-                                Mon compte</a>
-                        </li>
-                        <li>
-                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">
-                                Gestion des postes</a>
-                        </li>
-                        <li>
-                            <a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">
-                                Gestion des comptes</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    {{-- Menu déroulant pour mobile --}}
+    <div :class="{ 'hidden': !open, 'block': open }" :id="'navbar-hamburger-' + open" class="w-full">
+        <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700" style="text-align: center">
+            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;" href="#" aria-current="page">Accueil</a></li>
+            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Encyclopédie</a></li>
+            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Actualités</a></li>
+            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">A propos</a></li>
+            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Se connecter/S'inscrire</a></li>
+            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Mon compte</a></li>
+            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Gestion des postes</a></li>
+            <li><a style="display: block; padding: 0.5rem 0.75rem; color: white; background-color: rgb(165,165,165); text-decoration: none;">Gestion des comptes</a></li>
+        </ul>
+    </div>
+</nav>
         
         {{-- Colonne centrale --}}
         <main>
@@ -133,19 +107,27 @@
             
 
             {{-- Bloc des info secondaires--}}
-            <div> 
-                <h1>Autres informations</h1>
-                <div>Titre</div>
-                <div>Titre</div>
-                <div>Titre</div>
+            <div style="weight: 10em; border: 1px solid rgb(62,38,16); margin-bottom: 1em;"> 
+                <h1 style="text-align: center; background-color: rgb(62, 38, 16); color: rgb(255, 235,222); font-size: larger;">Autres actualités</h1>
+                <div style="background-color: rgb(165,165,165);">
+                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                </div>
             </div>
 
             {{-- Bloc des maj --}}
-            <div>
-                <h1>Mises à jours</h1>
-                <div>Titre</div>
-                <div>Titre</div>
-                <div>Titre</div>
+            <div style="weight: 10em; border: 1px solid rgb(62,38,16); margin-bottom: 1em;"> 
+                <h1 style="text-align: center; background-color: rgb(62, 38, 16); color: rgb(255, 235,222); font-size: larger;">Mises à jours</h1>
+                <div style="background-color: rgb(165,165,165);">
+                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                    <div style="text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+                </div>
             </div>
 
         </main>
@@ -160,10 +142,10 @@
                 <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" style="margin: 0.8em" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path opacity="1" fill="#FFFFFF" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
             </div>
             {{-- Liens des conditions générales d'utilisation --}}
-            <div>
-                <a></a>
-                <a></a>
-                <a></a>
+            <div style="font-size: 0.7em; text-align: end; color: white;">
+                <a src="">Mentions légales</a>
+                <a src="">Conditions générales d'utilisation</a>
+                <a src="">Politique et confidentialité</a>
             </div>
         </footer>
 
