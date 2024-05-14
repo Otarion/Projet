@@ -12,52 +12,59 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
 
-    <body class="font-judson" style="background-color: white;">
-{{-- Header --}}
+    <body class="font-judson lg:bg-[#a5a5a5] bg-white">
 
+{{-- Header --}}
     <header x-data="{searchOpen: false, menuOpen:false,}" x-cloak>
 
         {{-- Banderole PC/tablette --}}
-    <div style="background-color: rgb(135,115,106);"
-        class="max-lg:hidden h-32 text-center items-center flex justify-center">
+    <div class="max-lg:hidden h-28 text-center items-center flex justify-center bg-[#87736a]">
         <a>
-            <img src="image/logo/logonoir.png" class="content-start ml-4 h-20" alt="logo-oa">
+            <img src="image/logo/logonoir.png" class="content-start ml-4 mr-40 h-20" alt="logo-oa">
         </a>
-        <span style="color: white; font-weight: bold;" class="text-7xl flex-grow mr-20">L'Odyssée d'Adénone</span>
+        <span class="text-white text-7xl flex-grow mx-auto w-2/3 font-bold">L'Odyssée d'Adénone</span>
+                
+            {{-- Barre de recherche pour PC/tablette--}}
+                <div 
+                style="padding: 0.5rem; height: 2em; width: 15em;"
+                class="mr-1 top-9 relative flex items-center bg-white border border-white-1">
+                    <input type="text" placeholder="Rechercher..." style="width: 12em;">
+                    <button>🔍</button>
+                </div>
     </div>
 
 {{-- Barre de navigation --}}
-<nav style="background-color: rgb(62, 38, 16)" class="">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin: 0 auto; padding: 1rem; position: relative;">
+<nav class="lg:h-14 bg-[#3e2610]">
+    <div style="margin: 0 auto; padding: 1rem;" class="flex flex-wrap justify-between items-center relative ">
         
         {{-- Bouton de recherche --}}
         <button 
         @click="searchOpen = !searchOpen" 
-        style="align-items: center; gap: 0.75rem;" 
-        class="flex lg:hidden justify-start"
+        style="gap: 0.75rem;" class="flex lg:hidden justify-start items-center"
         type="button">
             <svg style="height: 30px; width: 30px;"
             xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e8eaed"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
         </button>
 
-        {{-- Barre de recherche --}}
+        {{-- Barre de recherche pour mobile--}}
         <div 
-        style="display: flex ; align-items: center; background-color: white; border: 1px solid #ccc; padding: 0.5rem; height: 2em; width: 15em;"
+        style="border: 1px solid #ccc; padding: 0.5rem; height: 2em; width: 15em;"
+        class="flex items-center bg-white"
         x-show="searchOpen">
             <input type="text" placeholder="Rechercher..." style="width: 12em;">
             <button>🔍</button>
         </div>
 
-        {{--Barre de menu pour PC/Tablette--}}
-    <div class="hidden lg:flex items-center justify-between flex-nowrap px-2 py-3">
-        <div class="flex items-center">
-            <div class="ml-10 flex items-baseline space-x-4">
-                <a href="#" class="text-sm text-white">Encyclopédie</a>
-                <a href="#" class="text-sm text-white">Actualités</a>
-                <a href="#" class="text-sm text-white">A propos</a>
-            </div>
+{{-- Barre de menu pour PC/Tablette --}}
+<div class="none lg:flex items-center justify-center mx-auto h-14 p-0">
+    <div class="flex items-center h-14">
+        <div class="ml-10 flex items-baseline space-x-40 text-center">
+            <a href="#" class="text-white border border-[#FFEBDE]-1">Encyclopédie</a>
+            <a href="#" class=" text-white">Actualités</a>
+            <a href="#" class=" text-white">A propos</a>
         </div>
     </div>
+</div>
 
 {{-- Bouton de menu --}}
 <div>
@@ -76,7 +83,7 @@
 </nav>
 
     {{-- Menu déroulant pour mobile --}}
-    <div x-data="{encyOpen: false, ruleOpen: false, univerOpen:false,}">
+    <div x-data="{encyOpen: false, ruleOpen: false, univerOpen:false,}" class="lg:display:none">
         <ul 
         x-show="menuOpen"
         class="flex-col font-medium absolute w-full z-50" 
@@ -129,7 +136,7 @@
         
 {{-- Corps --}}
         <main style="flex-direction: column;"
-            class="lg:bg-[#a5a5a5] lg:w-2/3 flex items-center max-lg:w-full lg:mx-auto">
+            class="lg:bg-[#ffffff] lg:w-2/3 flex items-center max-lg:w-full lg:mx-auto">
 
             {{-- Banderole mobile --}}
             <div style="background-color: rgb(135,115,106); text-align: center;" class="lg:hidden w-full">
@@ -188,11 +195,13 @@
                 </button>
             </div>
                     
+    {{-- Blocs d'informations --}}
+        <div class="lg:flex lg:flex-row lg:justify-between lg:space-x-10">
             {{-- Bloc des info secondaires--}}
             <div style="width: 23em; border: 1px solid rgb(62,38,16); margin-bottom: 1em;"> 
                 <h1 style="text-align: center; background-color: rgb(62, 38, 16); color: rgb(255, 235,222); font-size: larger;">
                     Autres actualités</h1>
-                <div style="background-color: rgb(165,165,165); display: flex; flex-direction: column; align-items: center;">
+                <div style="background-color: #a5a5a5; display: flex; flex-direction: column; align-items: center;">
                     <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
                     <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
                     <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
@@ -205,7 +214,7 @@
             <div style="width: 23em; border: 1px solid rgb(62,38,16); margin-bottom: 1em;"> 
                 <h1 style="text-align: center; background-color: rgb(62, 38, 16); color: rgb(255, 235,222); font-size: larger;">
                     Mises à jours</h1>
-                <div style="background-color: rgb(165,165,165); display: flex; flex-direction: column; align-items: center;">
+                <div style="background-color: #a5a5a5; display: flex; flex-direction: column; align-items: center;">
                     <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
                     <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
                     <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
@@ -213,11 +222,12 @@
                     <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
                 </div>
             </div>
-        </main>
+        </div>
+    </main>
         
         {{-- Footer avec réseaux sociaux et liens de conditions générales --}}
-        <footer style="max-width: 1280px; max-height: 75px; display: flex; justify-content: space-between; align-items: center; margin: 0 auto; padding: 1rem; background-color: rgb(135, 115, 106)"
-        class="bottom-0 absolute">
+        <footer style="max-height: 50px; display: flex; justify-content: space-between; align-items: center; margin: 0 auto; padding: 1rem; background-color: rgb(135, 115, 106)"
+        class="bottom-0 absolute lg:w-full lg:relative">
             {{-- Logo --}}
             <div style="display: flex;">
                 <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" style="margin: 0.8em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path opacity="1" fill="#FFFFFF" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
