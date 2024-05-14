@@ -87,20 +87,20 @@
                 <a style="padding: 0.5rem 0.75rem;" class="text-2xl" @click="encyOpen = !encyOpen">Encyclopédie ▼</a></li>
 
                 <ul style="background-color: rgb(255, 235,222);">
-                    <li x-show="encyOpen" :style="open? 'padding: 1rem;' : ''">
+                    <li x-show="encyOpen" :style="encyOpen? 'padding: 1rem;' : ' ' ">
                         <a style="padding: 0.5rem 0.75rem; color:rgb(62, 38, 16);" class="text-xl font-bold" @click="ruleOpen = !ruleOpen">Règles ▼</a></li>
 
-                            <ul style="background-color: white;" x-show="ruleOpen">
+                            <ul style="background-color: white;" x-show="ruleOpen" :style="encyOpen? '' : 'display:none' ">
                                 <li style="padding: 1rem;"><a style="color:black" href="">Histoire</a></li>
                                 <li style="padding: 1rem;"><a style="color:black" href="">Carte du monde</a></li>
                                 <li style="padding: 1rem;"><a style="color:black" href="">Magie</a></li>
                                 <li style="padding: 1rem;"><a style="color:black" href="">Religions</a></li>
                             </ul>
 
-                    <li x-show="encyOpen" :style="open? 'padding: 1rem;' : ''"> 
+                    <li x-show="encyOpen" :style="encyOpen? 'padding: 1rem;' : ' ' "> 
                         <a style="padding: 0.5rem 0.75rem; color: rgb(62,38,16);" class="text-xl font-bold" @click="univerOpen = !univerOpen">Univers ▼</a></li>
 
-                        <ul style="background-color: white;" x-show="univerOpen">
+                        <ul style="background-color: white;" x-show="univerOpen" :style="encyOpen? '' : 'display:none' ">
                             <li style="padding: 1rem;"><a style="color:black" href="">Règles</a></li>
                             <li style="padding: 1rem;"><a style="color:black" href="">Création de personnage</a></li>
                             <li style="padding: 1rem;"><a style="color:black" href="">Classes</a></li>
