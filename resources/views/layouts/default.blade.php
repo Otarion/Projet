@@ -56,7 +56,7 @@
         </div>
 
 {{-- Barre de menu pour PC/Tablette --}}
-<div class="none lg:flex items-center justify-center mx-auto h-14 p-0">
+<div class="max-lg:hidden  items-center justify-center mx-auto h-14 p-0">
     <div class="flex items-center h-14">
         <div class="ml-10 flex items-baseline space-x-40 text-center">
             <a href="#" class="text-white border border-[#FFEBDE]-1">Encyclopédie</a>
@@ -227,7 +227,7 @@
         
         {{-- Footer avec réseaux sociaux et liens de conditions générales --}}
         <footer style="max-height: 50px; display: flex; justify-content: space-between; align-items: center; margin: 0 auto; padding: 1rem; background-color: rgb(135, 115, 106)"
-        class="bottom-0 absolute lg:w-full lg:relative">
+        class="bottom-0 absolute w-full lg:relative">
             {{-- Logo --}}
             <div style="display: flex;">
                 <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" style="margin: 0.8em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path opacity="1" fill="#FFFFFF" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
