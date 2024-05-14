@@ -15,7 +15,7 @@
     <body class="font-judson" style="background-color: white;">
 {{-- Header --}}
 
-    <header x-data="{searchOpen: false, menuOpen:false}" x-cloak>
+    <header x-data="{searchOpen: false, menuOpen:false,}" x-cloak>
 
         {{-- Banderole PC/tablette --}}
     <div style="background-color: rgb(135,115,106);"
@@ -76,7 +76,7 @@
 </nav>
 
     {{-- Menu déroulant pour mobile --}}
-    <div>
+    <div x-data="{encyOpen: false, ruleOpen: false, univerOpen:false,}">
         <ul 
         x-show="menuOpen"
         class="flex-col font-medium absolute w-full z-50" 
@@ -84,7 +84,33 @@
             <li style="border: 1px solid rgb(255, 235, 222); padding: 1.5rem;">
                 <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="">Accueil</a></li>
             <li style="border: 1px solid rgb(255, 235, 222); padding: 1.5rem;">
-                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="">Encyclopédie</a></li>
+                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" @click="encyOpen = !encyOpen">Encyclopédie ▼</a></li>
+
+                <ul style="background-color: rgb(255, 235,222);">
+                    <li x-show="encyOpen" :style="open? 'padding: 1rem;' : ''">
+                        <a style="padding: 0.5rem 0.75rem; color:rgb(62, 38, 16);" class="text-xl font-bold" @click="ruleOpen = !ruleOpen">Règles ▼</a></li>
+
+                            <ul style="background-color: white;" x-show="ruleOpen">
+                                <li style="padding: 1rem;"><a style="color:black" href="">Histoire</a></li>
+                                <li style="padding: 1rem;"><a style="color:black" href="">Carte du monde</a></li>
+                                <li style="padding: 1rem;"><a style="color:black" href="">Magie</a></li>
+                                <li style="padding: 1rem;"><a style="color:black" href="">Religions</a></li>
+                            </ul>
+
+                    <li x-show="encyOpen" :style="open? 'padding: 1rem;' : ''"> 
+                        <a style="padding: 0.5rem 0.75rem; color: rgb(62,38,16);" class="text-xl font-bold" @click="univerOpen = !univerOpen">Univers ▼</a></li>
+
+                        <ul style="background-color: white;" x-show="univerOpen">
+                            <li style="padding: 1rem;"><a style="color:black" href="">Règles</a></li>
+                            <li style="padding: 1rem;"><a style="color:black" href="">Création de personnage</a></li>
+                            <li style="padding: 1rem;"><a style="color:black" href="">Classes</a></li>
+                            <li style="padding: 1rem;"><a style="color:black" href="">Peuples</a></li>
+                            <li style="padding: 1rem;"><a style="color:black" href=""> Compétences & Caractèristiques</a></li>
+                            <li style="padding: 1rem;"><a style="color:black" href="">Equipements</a></li>
+                            <li style="padding: 1rem;"><a style="color:black" href="">Sortilèges</a></li>
+                        </ul>
+                </ul>
+
             <li style="border: 1px solid rgb(255, 235, 222); padding: 1.5rem;">
                 <a style="padding: 0.5rem 0.75rem" class="text-2xl" href="">Actualités</a></li>
             <li style="border: 1px solid rgb(255, 235, 222); padding: 1.5rem;">
