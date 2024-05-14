@@ -22,7 +22,8 @@ export default {
             },
         },
         color:{
-            marron: 'rgb(62, 38, 16)',
+            'marron': 'rgb(62, 38, 16)',
+            'gris':'rgb(165, 165,165)',
         }
     },
 
