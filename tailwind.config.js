@@ -20,6 +20,18 @@ export default {
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans], 
                 judson: ['"Judson"', ...defaultTheme.fontFamily.sans],      
             },
+            width:{
+                '38':'9.5rem',
+                '46':'11.5rem',
+                '42':'10.5rem',
+            },
+            spacing:{
+                '84':'21rem',
+                '88':'22rem',
+                '92':'23rem',
+                '94':'23.5rem',
+                '94.5':'23.85rem',
+            },
         },
         color:{
             'marron': 'rgb(62, 38, 16)',
