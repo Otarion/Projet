@@ -146,27 +146,14 @@
             <div id="default-carousel" class="relative w-full lg:w-3/5 data-carousel="slide">
                 <!-- Carousel wrapper -->
                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                    <!-- Item 1 -->
+                    
+                    @foreach($posts as $post)
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="/docs/images/carousel/carousel-1.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                        <img src="{{$post->thumbnail}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                        <a>{{ $post->title }}</a>
                     </div>
-                    <!-- Item 2 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="/docs/images/carousel/carousel-2.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="https://via.placeholder.com/640x480.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="https://via.placeholder.com/640x480.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                    <!-- Item 5 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="https://via.placeholder.com/640x480.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                </div>
+                    @endforeach
+
                 <!-- Slider indicators -->
                 <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
                     <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
@@ -181,7 +168,7 @@
                         <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
                         </svg>
-                        <span class="sr-only">Previous</span>
+                        <span class="sr-only">Précédent</span>
                     </span>
                 </button>
                 <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
@@ -189,7 +176,7 @@
                         <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                         </svg>
-                        <span class="sr-only">Next</span>
+                        <span class="sr-only">Suivant</span>
                     </span>
                 </button>
             </div>

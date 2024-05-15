@@ -13,4 +13,11 @@ class PostController extends Controller
             'posts'=> Post::latest()->paginate(10),
         ]);
     }
+
+    public function home()
+    {
+        return view('layouts.default',[
+            'posts'=> Post::latest()->paginate(5),
+        ]);
+    }
 }

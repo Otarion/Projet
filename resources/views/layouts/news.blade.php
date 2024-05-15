@@ -177,7 +177,7 @@
         </div>
         <div class="m-2 lg:w-1/3 flex flex-row">
 
-            <img alt="Image" class="justify-end" src="{{ $post->thumbnail }}">
+            <img alt="Image" class="justify-end" src="{{$post->thumbnail}}">
 
             <div class="flex flex-col w-1/4 items-center pl-2 ">
                 <button class="mb-2 pl-1">
