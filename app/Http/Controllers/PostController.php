@@ -8,6 +8,7 @@ use Illuminate\View\View;
 
 class PostController extends Controller
 {
+// Insertion des posts dans la page d'actualités
     public function index(): View
     {
         return view ('posts.news',[
@@ -15,6 +16,7 @@ class PostController extends Controller
         ]);
     }
 
+    //Insertion des posts dans le carousel
     public function carousel()
     {
         return view('posts.index',[
@@ -22,6 +24,7 @@ class PostController extends Controller
         ]);
     }
 
+    //Affichage des posts individuellement
     public function show(Post $post): View
     {
         return view('posts.show', [

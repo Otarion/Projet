@@ -22,7 +22,7 @@
                 <a class="lg:text-4xl text-xl font-bold text-[#3e2610] text-justify" href="{{ route('posts.show', ['post' => $post]) }}">{{ $post->title }}</a>
                 <p class="mb-3 text-justify">{{ $post->excerpt }}</p>
                 <a>Catégorie</a>
-                <time class="text-[#00000090]" datetime="{{ $post->created_at }}">{{ $post->created_at }}</time>
+                <time class="text-[#00000090]" datetime="{{ $post->created_at }}">@datetime($post->created_at)</time>
             </div>
         </div>
 
