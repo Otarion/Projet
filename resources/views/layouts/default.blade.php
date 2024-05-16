@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="h-full">
+<html lang="fr" class="">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv=X-UA-Compatible content="IE-edge">
@@ -136,15 +136,7 @@
 </header>
         
 {{-- Corps --}}
-        <main class="lg:bg-[#ffffff] lg:w-2/3 items-center justify-around max-lg:w-full lg:mx-auto flex flex-grow-1 h-full flex-col">
-
-            {{-- Banderole mobile --}}
-            <div class="lg:hidden w-full bg-[#87736a] text-center">
-            </div>
-
-            {{ $slot }}
-
-</main>
+{{ $slot }}
         
 {{-- Footer avec réseaux sociaux et liens de conditions générales --}}
 <footer style="max-height: 50px; display: flex; justify-content: space-between; align-items: center; margin: 0 auto; padding: 1rem; background-color: rgb(135, 115, 106)" class="bottom-0  w-full">
