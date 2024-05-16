@@ -38,5 +38,35 @@
                 </div>
             </div>
         </div>
+
+        {{-- Espace commentaires --}}
+        <div class="w-4/6 flex items-center justify-center mt-5 mb-5">
+                {{-- Commenter --}}
+            <div class="flex flex-col border border-[#87736a] border-2 rounded-md w-full h-36 items-center">
+                <textarea href="" class="border border-black mt-3 w-11/12"></textarea>
+                <input type="button" class="rounded-md text-[#ffedbe] bg-[#3e2610]" href="">Commenter</input>
+            </div>
+
+            {{-- Précédents commentaires --}}
+            <div class="border border-[#87736a] border-2">
+                {{-- Commentaire --}}
+                <div class="border border-[#a5a5a5]">
+
+                    {{-- User --}}
+                    <div>
+                        <img href="">
+                        <a href=""></a>
+                    </div>
+                    
+                    {{-- Content --}}
+                    <p href=""></p>
+
+                    {{-- Datetime --}}
+                    <datetime datetime=""></datetime>
+
+                </div>
+            </div>
+        </div>
+
     </main>
 </x-layout>
