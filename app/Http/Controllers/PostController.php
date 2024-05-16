@@ -4,20 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        return view ('layouts.news',[
+        return view ('posts.news',[
             'posts'=> Post::latest()->paginate(10),
         ]);
     }
 
-    public function home()
+    public function carousel()
     {
-        return view('layouts.default',[
+        return view('posts.index',[
             'posts'=> Post::latest()->paginate(5),
+        ]);
+    }
+
+    public function show(Post $post): View
+    {
+        return view('posts.show', [
+            'post' => $post,
         ]);
     }
 }

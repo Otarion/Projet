@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv=X-UA-Compatible content="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ config('app.name') }}</title>
+        <title>{{ config('app.name').' | Actualités' }}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">      
@@ -157,10 +157,10 @@
         <div class="flex flex-row m-2 lg:w-2/3">
 
             <div class="flex flex-col">
-            <a class="lg:text-4xl text-xl font-bold text-[#3e2610] text-justify">{{ $post->title }}</a>
+            <a class="lg:text-4xl text-xl font-bold text-[#3e2610] text-justify" href="{{ route('posts.show', ['post' => $post]) }}">{{ $post->title }}</a>
             <p class="mb-3 text-justify">{{ $post->excerpt }}</p>
             <a>Catégorie</a>
-            <a>{{ $post->created_at }}</a>
+            <time class="text-[#00000090]" datetime="{{ $post->created_at }}">{{ $post->created_at }}</time>
             </div>
 
                 <div class="lg:hidden flex flex-col w-1/4 items-center pl-2 max-lg:hidden">
