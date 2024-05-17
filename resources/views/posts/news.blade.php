@@ -17,11 +17,16 @@
 <div class="w-full lg:m-3 mt-3">
     <div class="lg:flex flex-row bg-[#a5a5a5c5] border border-1 border-[#87736a] lg:w-5/6 w-11/12 mx-auto lg:h-72">
         <div class="flex flex-row m-2 lg:w-2/3">
+
             {{-- Contenu du post --}}
             <div class="flex flex-col">
                 <a class="lg:text-4xl text-xl font-bold text-[#3e2610] text-justify" href="{{ route('posts.show', ['post' => $post]) }}">{{ $post->title }}</a>
                 <p class="mb-3 text-justify">{{ $post->excerpt }}</p>
-                <a>Catégorie</a>
+
+                @if ($post->category)
+                <a href="" class="font-bold">{{ $post->category->name }}</a>
+                @endif
+
                 <time class="text-[#00000090]" datetime="{{ $post->created_at }}">@datetime($post->created_at)</time>
             </div>
         </div>

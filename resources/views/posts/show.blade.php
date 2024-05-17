@@ -21,11 +21,16 @@
                         </div>
 
                         <div class="flex flex-row m-2 lg:w-2/3">
+
                     {{-- Contenu des  posts--}}
                         <div class="flex flex-col">
                             <a class="lg:text-4xl text-xl font-bold text-[#3e2610] text-justify">{{ $post->title }}</a>
                             <p class="mb-3 text-justify">{!! nl2br(e($post->content)) !!}</p>
-                            <a>Catégorie</a>
+
+                            @if ($post->category)
+                            <a href="" class="font-bold">{{ $post->category->name }}</a>
+                            @endif
+
                             <time class="text-[#a5a5a5]" datetime="{{ $post->created_at }}">@datetime($post->created_at)</time>
                         </div>
 
