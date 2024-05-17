@@ -24,7 +24,7 @@
                 <p class="mb-3 text-justify">{{ $post->excerpt }}</p>
 
                 @if ($post->category)
-                <a href="" class="font-bold">{{ $post->category->name }}</a>
+                <a href="{{ route('posts.byCategory', ['category'=>$post->category]) }}" class="font-bold">{{ $post->category->name }}</a>
                 @endif
 
                 <time class="text-[#00000090]" datetime="{{ $post->created_at }}">@datetime($post->created_at)</time>

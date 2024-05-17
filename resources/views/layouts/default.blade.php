@@ -20,45 +20,52 @@
         {{-- Banderole PC/tablette --}}
     <div class="max-lg:hidden h-28 text-center items-center flex justify-center bg-[#87736a]">
         <a>
-            <img src="image/logo/logonoir.png" class="content-start ml-4 mr-40 h-20" alt="logo-oa">
+            <img src="/image/logo/logonoir.png" class="content-start ml-4 mr-40 h-20" alt="logo-oa">
         </a>
         <span class="text-white text-7xl flex-grow mx-auto w-2/3 font-bold">L'Odyssée d'Adénone</span>
                 
             {{-- Barre de recherche pour PC/tablette--}}
-                <div class="mr-1 top-9 relative flex items-center bg-white border border-white-1 p-2 h-8 w-60">
+                <form class="mr-1 top-9 relative flex items-center bg-white border border-white-1 p-2 h-8 w-60">
                     <input type="text" placeholder="Rechercher..." class="w-48">
                     <button>🔍</button>
-                </div>
+                </form>
     </div>
 
 {{-- Barre de navigation --}}
 <nav class="bg-[#3e2610]">
-    <div style="margin: 0 auto; padding: 0.7rem;" class="flex flex-wrap justify-between items-center relative lg:border lg:border-[#ffebde]-1">
+    <div style="margin: 0 auto; padding: 0.7rem;" class="flex justify-between items-center relative lg:border lg:border-[#ffebde]-1">
         
         {{-- Bouton de recherche --}}
-        <button 
+    <form action="{{ route('index') }}" class="lg:hidden">
+        <input id="search" value="{{ request()->search }}" type="submit" name="search"
         @click="searchOpen = !searchOpen" 
-        class="flex lg:hidden justify-start items-center gap-3" type="button">
+        class="flex lg:hidden justify-start items-center gap-3">
             <svg style="height: 30px; width: 30px;"
             xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e8eaed"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
-        </button>
+        </input>
+    </form>
 
         {{-- Barre de recherche pour mobile--}}
-        <div class="flex items-center bg-white border border-[#ccc]-1 p-2 h-8 w-60" x-show="searchOpen">
+        <form class="flex items-center bg-white border border-[#ccc]-1 p-2 h-8 w-60" 
+        x-show="searchOpen" 
+        action="{{ route('index') }}">
             <input type="text" placeholder="Rechercher..." style="width: 12em;">
             <button>🔍</button>
-        </div>
+        </form>
 
 {{-- Barre de menu pour PC/Tablette --}}
 <div class="max-lg:hidden  items-center justify-center h-14 p-0">
     <div class="flex items-center h-14">
-            <div class="items-center m-32">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="h-12 w-12" fill="#ffebde" href=""><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg></div>
-                <div class="space-x-94.5 flex items-baseline text-center">
+                <div class="items-center m-32">
+                <a>
+                    <svg action="{{ route('index') }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="h-12 w-12" fill="#ffebde" href=""><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg></a>
+                </a>
+                </div>
+                    <div class="space-x-94.5 flex items-baseline text-center">
                     <div class="border h-20 border-[#ffebde]-1 p-5 text-2xl w-42">
                         <a href="#" class="text-white">Encyclopédie</a></div>
                     <div class="border h-20 border-[#ffebde]-1 p-5 text-2xl w-42">
-                        <a href="#" class="text-white">Actualités</a></div>
+                        <a class="text-white" href="{{ route('news') }}">Actualités</a></div>
                     <div class="border h-20 border-[#ffebde]-1 p-5 text-2xl w-42">
                         <a href="#" class="text-white">A propos</a></div>
                 </div>

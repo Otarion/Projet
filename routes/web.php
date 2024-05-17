@@ -4,8 +4,14 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+//Chemin vers l'index
 Route::get('/', [PostController::class, 'index'])->name('index');
+//Chemin vers l'actualité
+Route::get('/actualités', [PostController::class, 'news'])->name('news');
+// Chemin des catégories (news)
+Route::get('/categories/{category}', [PostController::class,'postsByCategory'])->name('posts.byCategory');
 
+//Chemin vers les posts (news)
 Route::get('/{post}', [PostController::class, 'show'])->name('posts.show');
 
 Route::get('/dashboard', function () {
