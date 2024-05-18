@@ -11,40 +11,28 @@ use Illuminate\View\View;
 class PostController extends Controller
 {
 // Insertion des posts dans la page d'actualités
-    public function index()
+    public function index(Request $request): View
     {
-        return view ('posts.index',[
-            'posts'=> Post::latest()->paginate(10),
-        ]);
-    }
-
-    public function postsByCategory(Category $category): View
-    {
-        return view('posts.news', [
-            // 'posts' => $category->posts()->latest()->paginate(10),
-            'posts' => Post::where(
-                'category_id', $category->id
-            )->latest()->paginate(10),
-        ]);
+        return $this->postsView($request->search ? ['search' => $request->search] : []);
     }
 
     public function news(Request $request): View
     {
-        $posts = Post::query();
-
-        if($search = $request->search)
-        {
-            $posts->where(function (Builder $query) use ($search) {
-                $query->where('title', 'LIKE', "%{$search}%")
-                ->orWhere('content', 'LIKE', "%{$search}%");
-            });
-        }
-    
-        return view('posts.news',[
-            'posts' => $posts->latest()->paginate(5)
-        ]);
+        return $this->postsView($request->search ? ['search' => $request->search] : []);
     }
 
+    public function postsByCategory(Category $category): View
+    {
+        return $this->postsView(['category'=> $category]);
+    }
+
+    protected function postsView(array $filters): View
+    {
+        return view('posts.news', [
+            // 'posts' => $category->posts()->latest()->paginate(10),
+            'posts' => Post::filters($filters)->latest()->paginate(5),
+        ]);
+    }
     //Affichage des posts individuellement
     public function show(Post $post): View
     {
