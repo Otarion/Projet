@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 
 //Chemin vers l'index
 Route::get('/', [PostController::class, 'index'])->name('index');

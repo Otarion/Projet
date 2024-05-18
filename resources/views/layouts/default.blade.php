@@ -71,8 +71,10 @@
                         <a href="#" class="text-white">À propos</a></div>
                 </div>
             <div class="m-20 flex flex-row justify-around space-x-20">
-                <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-10 w-10" fill="#ffebde" href=""><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"/></svg></div>
-                <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-10 w-10" fill="#ffebde" href=""><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"/></svg></div>
+                {{-- Bouton pour aller à la page d'inscription/connexion --}}
+                <a href="{{ route('register') }}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-10 w-10" fill="#ffebde"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"/></svg></a>
+                {{-- Bouton de déconnexion --}}
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-10 w-10" fill="#ffebde"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"/></svg></a>
             </div>
     </div>
 </div>
@@ -98,9 +100,9 @@
         <ul x-show="menuOpen"
         class="flex-col font-medium absolute w-full z-50 text-center bg-[#3e2610] text-white block" >
             <li class="border border-[#ffebde]-1 p-6">
-                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="">Accueil</a></li>
+                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="{{ route('index')}}">Accueil</a></li>
             <li class="border border-[#ffebde]-1 p-6">
-                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" @click="encyOpen = !encyOpen">Encyclopédie ▼</a></li>
+                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" @click="encyOpen = !encyOpen" href="{{ route('news') }}">Encyclopédie ▼</a></li>
 
                 <ul class="bg-[#ffebde]">
                     <li x-show="encyOpen" :style="encyOpen? 'padding: 1rem;' : ' ' ">
@@ -132,7 +134,7 @@
             <li class="border border-[#ffebde]-1 p-6">
                 <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="">A propos</a></li>
             <li class="border border-[#ffebde]-1 p-6">
-                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="">Se connecter/S'inscrire</a></li>
+                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="{{ route('register') }}">Se connecter/S'inscrire</a></li>
             <li class="border border-[#ffebde]-1 p-6">
                 <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="">Mon compte</a></li>
             <li class="border border-[#ffebde]-1 p-6">

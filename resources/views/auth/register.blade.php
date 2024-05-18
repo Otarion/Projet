@@ -1,52 +1,45 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<x-layout>
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+    <main class="lg:bg-[#ffffff] lg:w-2/3 items-center justify-around max-lg:w-full lg:mx-auto flex flex-grow-1 h-full flex-col">
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        {{-- Banderole mobile --}}
+        <div class="lg:hidden w-full bg-[#87736a] text-center">CONNEXION / INSCRIPTION</div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    <div  class="flex flex-row pt-10 pb-10 w-full pr-8 pl-8 justify-items-center">
+        {{-- Formulaire d'inscription --}}
+        <form class="border border-[#3e2610] p-4 bg-[#a5a5a595] justify-between space-y-1 flex flex-col items-center">
+            <a class="underline text-[#3e2610] text-2xl">Inscription</a>
+            <input type="text" id="name" name="name" required placeholder="Nom d'utilisateur *">
+            <input type="text" id="email" name="email" required placeholder="E-mail *">
+            <input type="text" id="password" name="password" required placeholder="Mot de passe *">
+            <p class="bg-white border border-[#3e2610] text-center">Votre mot de passe doit contenir:<br>- Min. 8 caractères<br>-Une lettre majuscrule<br>-Un caractèren spécial (!#&*+,-.:;<>=?@[\/_-{|}])<br>-Un chiffre</p>
+            <input type="text" id="pssword_confirmation" name="password_confirmation" required placeholder="Confirmation du mot de passe *">
+            <div class="flex">
+                <input type="checkbox" id="newsletters" name="newsletters">
+                <a class="pl-2">En cochant cette case, vous acceptez de recevoir des newlestters par e-mail.</a>
+            </div>
+            <div class="flex">
+                <input type="checkbox" id="termsOfUse" name="termsOfUse">
+                <a class="pl-2">J'accepte les conditions d'utilisations. *</a>
+            </div>
+            <button type="submit" class="bg-[#3e2610] text-[#ffebde] p-3">Je m'inscris</button>
+            <a>* : champs obligatoires</a>
+        </form>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+        <a>OU</a>
+        {{-- Formulaire de connexion --}}
+        <form>
+            <a>Connexion</a>
+            <input type="text" id="email" name="email" required placeholder="Email">
+            <input type="text" id="password" name="password" required placeholder="Mot de passe">
+            <a>Mot de passe oublié ?</a>
+            <div class="flex">
+                <input type="checkbox" id="stay_connect" name="stay-connect">
+                <a>Se souvenir de moi</a>
+            </div>
+            <button type="submit">Je me connecte</button>
+        </form>
+    </div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </main>
+</x-layout>

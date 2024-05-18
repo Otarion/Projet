@@ -15,7 +15,7 @@
 @foreach($posts as $post)
 
 <div class="w-full lg:m-3 mt-3">
-    <div class="lg:flex flex-row bg-[#a5a5a5c5] border border-1 border-[#87736a] lg:w-5/6 w-11/12 mx-auto lg:h-72">
+    <div class="lg:flex flex-row bg-[#a5a5a587] border border-1 border-[#87736a] lg:w-5/6 w-11/12 mx-auto lg:h-72">
         <div class="flex flex-row m-2 lg:w-2/3">
 
             {{-- Contenu du post --}}
