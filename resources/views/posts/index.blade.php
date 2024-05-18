@@ -6,15 +6,17 @@
             </div>
 
             {{-- Carrousel --}}
-            <div id="default-carousel" class="relative w-full lg:w-3/5 data-carousel="slide">
+            <div id="default-carousel" class="relative lg:pb-16 w-full lg:w-3/5" data-carousel="slide">
                 <!-- Carousel wrapper -->
                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                     
                     @foreach($posts as $post)
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{$post->thumbnail}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                        <a>{{ $post->title }}</a>
+
+                    <div class="duration-700 ease-in-out" data-carousel-item>
+                        <img href="{{$post->thumbnail}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                        <a href="">{{ $post->title }}</a>
                     </div>
+                    
                     @endforeach
 
                 <!-- Slider indicators -->
@@ -45,7 +47,7 @@
             </div>
                     
     {{-- Blocs d'informations --}}
-    <div class="lg:flex lg:flex-row lg:justify-between lg:space-x-10">
+    <div class="lg:flex lg:flex-row lg:justify-between lg:space-x-10 lg:pb-14">
         {{-- Bloc des info secondaires--}}
         <div style="width: 23em; border: 1px solid rgb(62,38,16); margin-bottom: 1em;"> 
             <h1 style="text-align: center; background-color: rgb(62, 38, 16); color: rgb(255, 235,222); font-size: larger;">

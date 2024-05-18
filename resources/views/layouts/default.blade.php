@@ -25,9 +25,9 @@
         <span class="text-white text-7xl flex-grow mx-auto w-2/3 font-bold">L'Odyssée d'Adénone</span>
                 
             {{-- Barre de recherche pour PC/tablette--}}
-                <form class="mr-1 top-9 relative flex items-center bg-white border border-white-1 p-2 h-8 w-60">
-                    <input type="text" placeholder="Rechercher..." class="w-48">
-                    <button>🔍</button>
+                <form class="mr-1 top-9 relative flex items-center bg-white border border-white-1 p-2 h-8 w-60" action="{{ route('news') }}">
+                    <input type="text" placeholder="Rechercher..." class="w-48" id="search" name="search" value="{{ request()->search }}">
+                    <button type="submit">🔍</button>
                 </form>
     </div>
 
@@ -36,20 +36,21 @@
     <div style="margin: 0 auto; padding: 0.7rem;" class="flex justify-between items-center relative lg:border lg:border-[#ffebde]-1">
         
         {{-- Bouton de recherche --}}
-    <form action="{{ route('index') }}" class="lg:hidden">
-        <input id="search" value="{{ request()->search }}" type="submit" name="search"
+    <form action="{{ route('news') }}" class="lg:hidden">
+        <input id="search" value="{{ request()->search }}" type="text" name="search"
         @click="searchOpen = !searchOpen" 
         class="flex lg:hidden justify-start items-center gap-3">
             <svg style="height: 30px; width: 30px;"
-            xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e8eaed"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e8eaed"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+        </svg>
         </input>
     </form>
 
         {{-- Barre de recherche pour mobile--}}
         <form class="flex items-center bg-white border border-[#ccc]-1 p-2 h-8 w-60" 
         x-show="searchOpen" 
-        action="{{ route('index') }}">
-            <input type="text" placeholder="Rechercher..." style="width: 12em;">
+        action="{{ route('news') }}">
+            <input type="submit" placeholder="Rechercher..." style="width: 12em;"  value="{{ request()->search }}" name="search" id="search">
             <button>🔍</button>
         </form>
 
@@ -57,17 +58,17 @@
 <div class="max-lg:hidden  items-center justify-center h-14 p-0">
     <div class="flex items-center h-14">
                 <div class="items-center m-32">
-                <a>
-                    <svg action="{{ route('index') }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="h-12 w-12" fill="#ffebde" href=""><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg></a>
-                </a>
-                </div>
+                        <a href="{{ route('index')}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="h-12 w-12" fill="#ffebde"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+                        </a>
+                        </div>
                     <div class="space-x-94.5 flex items-baseline text-center">
                     <div class="border h-20 border-[#ffebde]-1 p-5 text-2xl w-42">
                         <a href="#" class="text-white">Encyclopédie</a></div>
                     <div class="border h-20 border-[#ffebde]-1 p-5 text-2xl w-42">
-                        <a class="text-white" href="{{ route('news') }}">Actualités</a></div>
+                        <a href="{{ route('news') }}" class="text-white">Actualités</a></div>
                     <div class="border h-20 border-[#ffebde]-1 p-5 text-2xl w-42">
-                        <a href="#" class="text-white">A propos</a></div>
+                        <a href="#" class="text-white">À propos</a></div>
                 </div>
             <div class="m-20 flex flex-row justify-around space-x-20">
                 <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-10 w-10" fill="#ffebde" href=""><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"/></svg></div>
@@ -146,7 +147,7 @@
 {{ $slot }}
         
 {{-- Footer avec réseaux sociaux et liens de conditions générales --}}
-<footer style="max-height: 50px; display: flex; justify-content: space-between; align-items: center; margin: 0 auto; padding: 1rem; background-color: rgb(135, 115, 106)" class="bottom-0  w-full">
+<footer style="margin: 0 auto;" class="flex justify-between bottom-0 items-center w-full relative bg-[#87736a] p-4 max-h-14">
     {{-- Logo --}}
     <div style="display: flex;">
                 <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" style="margin: 0.8em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path opacity="1" fill="#FFFFFF" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>

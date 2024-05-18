@@ -10,7 +10,7 @@
     </button>
 
     {{-- Posts --}}
-<div class="w-full h-full">
+<div class="max-lg:w-full h-full">
 
 @foreach($posts as $post)
 
@@ -27,7 +27,7 @@
                 <a href="{{ route('posts.byCategory', ['category'=>$post->category]) }}" class="font-bold">{{ $post->category->name }}</a>
                 @endif
 
-                <time class="text-[#00000090]" datetime="{{ $post->created_at }}">@datetime($post->created_at)</time>
+                <time class="text-[#00000090]" datetime="{{$post->created_at}}">@datetime($post->created_at)</time>
             </div>
         </div>
 
@@ -40,10 +40,10 @@
 
 @endforeach
 
-</div>
-
 {{-- Pagination --}}
-<div class="mt-3 mb-3"> {{ $posts->links() }}</div>
+<div class="mt-3 mb-3 flex"> {{ $posts->links() }}</div>
+
+</div>
 
 </main>
 </x-layout>

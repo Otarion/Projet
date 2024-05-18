@@ -4,21 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class PostController extends Controller
 {
 // Insertion des posts dans la page d'actualités
-    public function index(Request $request): View
+    public function index()
     {
-        $posts = Post::query();
-
-        if($search = $request->search)
-        {
-            $posts->where('title', 'LIKE', '%'.$search.'%')
-            ->orWhere('content', 'LIKE', '%'.search.'%');
-        }
         return view ('posts.index',[
             'posts'=> Post::latest()->paginate(10),
         ]);
@@ -34,11 +28,20 @@ class PostController extends Controller
         ]);
     }
 
-    //Insertion des posts dans le carousel
-    public function news()
+    public function news(Request $request): View
     {
+        $posts = Post::query();
+
+        if($search = $request->search)
+        {
+            $posts->where(function (Builder $query) use ($search) {
+                $query->where('title', 'LIKE', "%{$search}%")
+                ->orWhere('content', 'LIKE', "%{$search}%");
+            });
+        }
+    
         return view('posts.news',[
-            'posts'=> Post::latest()->paginate(5),
+            'posts' => $posts->latest()->paginate(5)
         ]);
     }
 
