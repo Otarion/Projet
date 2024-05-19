@@ -13,7 +13,17 @@ class PostController extends Controller
 // Insertion des posts dans la page d'actualités
     public function index(Request $request): View
     {
-        return $this->postsView($request->search ? ['search' => $request->search] : []);
+        $posts = Post::query();
+
+        if ($search = $request->search) {
+            $posts->where(fn (Builder $query) => $query
+                ->where('title', 'LIKE', '%' . $search . '%')
+                ->orWhere('content', 'LIKE', '%' . $search . '%')
+            );
+        }
+        return view('posts.index', [
+            'posts' => $posts->latest()->paginate(10),
+        ]);
     }
 
     public function news(Request $request): View

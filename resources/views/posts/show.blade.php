@@ -1,4 +1,4 @@
-<x-layout :title="$post->title">
+<x-default-layout :title="$post->title">
 
     {{-- Corps --}}
     <main class="lg:bg-[#ffffff] lg:w-2/3 items-center justify-around max-lg:w-full lg:mx-auto flex flex-grow-1 h-fit flex-col">
