@@ -64,11 +64,11 @@
                         </div>
                     <div class="space-x-94.5 flex items-baseline text-center">
                     <div class="border h-20 border-[#ffebde]-1 p-5 text-2xl w-42 hover:bg-[#ffebde]">
-                        <a href="#" class="text-white hover:text-[#3e2610]">Encyclopédie</a></div>
+                        <a href="{{ route('ency') }}" class="text-white hover:text-[#3e2610]">Encyclopédie</a></div>
                     <div class="border h-20 border-[#ffebde]-1 p-5 text-2xl w-42 hover:bg-[#ffebde]">
                         <a href="{{ route('news') }}" class="text-white hover:text-[#3e2610]">Actualités</a></div>
                     <div class="border h-20 border-[#ffebde]-1 p-5 text-2xl w-42 hover:bg-[#ffebde]">
-                        <a href="#" class="text-white hover:text-[#3e2610]">A propos</a></div>
+                        <a href="{{ route('faq') }}" class="text-white hover:text-[#3e2610]">A propos</a></div>
                 </div>
             <div class="m-20 flex flex-row justify-around space-x-20">
                 {{-- Bouton pour aller à la page d'inscription/connexion --}}

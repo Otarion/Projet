@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\EncyclopediaController;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +16,10 @@ Route::get('/', [PostController::class, 'index'])->name('index');
 Route::get('/actualités', [PostController::class, 'news'])->name('news');
 // Chemin des catégories (news)
 Route::get('/categories/{category}', [PostController::class,'postsByCategory'])->name('posts.byCategory');
+//Chemin vers l'encyclopédie
+Route::get('/encyclopédie', [EncyclopediaController::class, 'ency'])->name('ency');
+//Chemin vers A propos
+Route::get('/faq', [FAQController::class, 'faq'])->name('faq');
 
 //Chemin vers les posts (news)
 Route::get('/{post}', [PostController::class, 'show'])->name('posts.show');
