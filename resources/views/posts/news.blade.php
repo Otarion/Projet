@@ -20,7 +20,7 @@
 
             {{-- Contenu du post --}}
             <div class="flex flex-col">
-                <a class="lg:text-4xl text-xl font-bold text-[#3e2610] text-justify" href="{{ route('posts.show', ['post' => $post]) }}">{{ $post->title }}</a>
+                <a class="lg:text-4xl text-xl font-bold text-[#3e2610] text-justify hover:underline" href="{{ route('posts.show', ['post' => $post]) }}">{{ $post->title }}</a>
                 <p class="mb-3 text-justify">{{ $post->excerpt }}</p>
 
                 @if ($post->category)

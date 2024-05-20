@@ -49,15 +49,17 @@
     {{-- Blocs d'informations --}}
     <div class="lg:flex lg:flex-row lg:justify-between lg:space-x-10 lg:pb-14">
         {{-- Bloc des info secondaires--}}
-        <div style="width: 23em; border: 1px solid rgb(62,38,16); margin-bottom: 1em;"> 
+        <div style="width: 23em; border: 1px solid rgb(62,38,16); margin-bottom: 1em;" class=""> 
             <h1 style="text-align: center; background-color: rgb(62, 38, 16); color: rgb(255, 235,222); font-size: larger;">
                 Autres actualités</h1>
-            <div style="background-color: #a5a5a5; display: flex; flex-direction: column; align-items: center;">
-                <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
-                <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
-                <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
-                <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
-                <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+            <div style="background-color: #a5a5a5; display: flex; flex-direction: column; align-items: center;" class="max-h-36 overflow-y-scroll overflow-x-hidden">
+                @foreach($posts as $post)
+                    @if($post->category && $post->category->name == 'Important')
+
+                <a style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);" class="p-1 max-h-14 hover:underline" href="{{ route('posts.show', ['post' => $post]) }}">{{ $post->title }}</a>
+                    
+                    @endif
+                @endforeach
             </div>
         </div>
     
@@ -65,8 +67,8 @@
         <div style="width: 23em; border: 1px solid rgb(62,38,16); margin-bottom: 1em;"> 
             <h1 style="text-align: center; background-color: rgb(62, 38, 16); color: rgb(255, 235,222); font-size: larger;">
                 Mises à jours</h1>
-            <div style="background-color: #a5a5a5; display: flex; flex-direction: column; align-items: center;">
-                <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
+            <div style="background-color: #a5a5a5; display: flex; flex-direction: column; align-items: center;" class="max-h-36 overflow-y-scroll overflow-x-hidden">
+                <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);"  class="p-1 max-h-14 hover:underline">Titre</div>
                 <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
                 <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
                 <div style="width: 23em; text-align: center; border: 1px solid rgb(62,38,16);">Titre</div>
