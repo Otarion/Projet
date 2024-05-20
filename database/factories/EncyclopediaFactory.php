@@ -25,7 +25,7 @@ class EncyclopediaFactory extends Factory
             'content'=> fake()->paragraphs(asText:true),
             'thumbnail'=> fake()->imageUrl(),
             'created_at'=>fake()->dateTimeInInterval('-1 year','+6 months'),
-            'uptated_at' =>fake()->dateTimeBetween('- 6 months', '+6 months'),
+            'updated_at' =>fake()->dateTimeBetween('- 6 months', '+6 months'),
         ];
     }
 }

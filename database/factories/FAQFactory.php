@@ -20,7 +20,7 @@ class FAQFactory extends Factory
             'question'=> fake()->unique()->sentence().'?',
             'answer'=>fake()->paragraph(),
             'created_at'=>fake()->dateTimeInInterval('-1 year','+6 months'),
-            'uptated_at' =>fake()->dateTimeBetween('- 6 months', '+6 months'),
+            'updated_at' =>fake()->dateTimeBetween('- 6 months', '+6 months'),
         ];
     }
 }
