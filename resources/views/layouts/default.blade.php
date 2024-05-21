@@ -20,9 +20,9 @@
         {{-- Banderole PC/tablette --}}
     <div class="max-lg:hidden h-28 text-center items-center flex justify-center bg-[#87736a]">
         <a>
-            <img src="/image/logo/logonoir.png" class="content-start ml-4 mr-40 h-20" alt="logo-oa">
+            <img src="/image/logo/logonoir.png" class="content-start ml-4 mr-40 h-20" alt="logo">
         </a>
-        <span class="text-white text-7xl flex-grow mx-auto w-2/3 font-bold">L'Odyssée d'Adénone</span>
+        <span class="text-white text-7xl flex-grow mx-auto w-2/3 font-bold ">L'Odyssée d'Adénone</span>
                 
             {{-- Barre de recherche pour PC/tablette--}}
                 <form class="mr-1 top-9 relative flex items-center bg-white border border-white-1 p-2 h-8 w-60" action="{{ route('news') }}">
@@ -35,15 +35,15 @@
 <nav class="bg-[#3e2610]">
     <div style="margin: 0 auto; padding: 0.7rem;" class="flex justify-between items-center relative lg:border lg:border-[#ffebde]-1">
         
-        {{-- Bouton de recherche --}}
+        {{-- Bouton d'ouverture de barre de recherche --}}
     <form action="{{ route('news') }}" class="lg:hidden">
-        <input id="search" value="{{ request()->search }}" type="text" name="search"
+        <div value="{{ request()->search }}" type="text" name="search"
         @click="searchOpen = !searchOpen" 
         class="flex lg:hidden justify-start items-center gap-3">
             <svg style="height: 30px; width: 30px;"
             xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e8eaed"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
-        </svg>
-        </input>
+            </svg>
+        </div>
     </form>
 
         {{-- Barre de recherche pour mobile--}}
@@ -102,24 +102,13 @@
             <li class="border border-[#ffebde]-1 p-6">
                 <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="{{ route('index')}}">Accueil</a></li>
             <li class="border border-[#ffebde]-1 p-6">
-                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" @click="encyOpen = !encyOpen" href="{{ route('news') }}">Encyclopédie ▼</a></li>
+                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" @click="encyOpen = !encyOpen">Encyclopédie ▼</a></li>
 
                 <ul class="bg-[#ffebde]">
                     <li x-show="encyOpen" :style="encyOpen? 'padding: 1rem;' : ' ' ">
                         <a style="padding: 0.5rem 0.75rem;" class="text-xl font-bold text-[#3e2610]" @click="ruleOpen = !ruleOpen">Règles ▼</a></li>
 
-                            <ul class="bg-white" x-show="ruleOpen" :style="encyOpen? '' : 'display:none' ">
-                                <li class="p-4"><a class="text-black" href="">Histoire</a></li>
-                                <li class="p-4"><a class="text-black" href="">Carte du monde</a></li>
-                                <li class="p-4"><a class="text-black" href="">Magie</a></li>
-                                <li class="p-4"><a class="text-black" href="">Religions</a></li>
-                            </ul>
-
-                    <li x-show="encyOpen" :style="encyOpen? 'padding: 1rem;' : ' ' "> 
-                        <a style="padding: 0.5rem 0.75rem;" class="text-xl font-bold text-[#3e2610]" @click="univerOpen = !univerOpen">Univers ▼</a></li>
-
                         <ul class="bg-white" x-show="univerOpen" :style="encyOpen? '' : 'display:none' ">
-                            <li class="p-4"><a class="text-black" href="">Règles</a></li>
                             <li class="p-4"><a class="text-black" href="">Création de personnage</a></li>
                             <li class="p-4"><a class="text-black" href="">Classes</a></li>
                             <li class="p-4"><a class="text-black" href="">Peuples</a></li>
@@ -127,12 +116,24 @@
                             <li class="p-4"><a class="text-black" href="">Equipements</a></li>
                             <li class="p-4"><a class="text-black" href="">Sortilèges</a></li>
                         </ul>
+
+                    <li x-show="encyOpen" :style="encyOpen? 'padding: 1rem;' : ' ' "> 
+                        <a style="padding: 0.5rem 0.75rem;" class="text-xl font-bold text-[#3e2610]" @click="univerOpen = !univerOpen">Univers ▼</a></li>
+
+                        <ul class="bg-white" x-show="ruleOpen" :style="encyOpen? '' : 'display:none' ">
+                            <li class="p-4"><a class="text-black" href="">Histoire</a></li>
+                            <li class="p-4"><a class="text-black" href="">Géographie</a></li>
+                            <li class="p-4"><a class="text-black" href="">Magie</a></li>
+                            <li class="p-4"><a class="text-black" href="">Religions</a></li>
+                            <li class="p-4"><a class="text-black" href="">Politique</a></li>
+                        </ul>
+
                 </ul>
 
             <li class="border border-[#ffebde]-1 p-6">
-                <a style="padding: 0.5rem 0.75rem" class="text-2xl" href="">Actualités</a></li>
+                <a style="padding: 0.5rem 0.75rem" class="text-2xl" href="{{ route('news')}}">Actualités</a></li>
             <li class="border border-[#ffebde]-1 p-6">
-                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="">A propos</a></li>
+                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="{{ route('faq') }}">A propos</a></li>
             <li class="border border-[#ffebde]-1 p-6">
                 <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="{{ route('register') }}">Se connecter/S'inscrire</a></li>
             <li class="border border-[#ffebde]-1 p-6">

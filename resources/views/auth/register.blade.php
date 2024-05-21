@@ -3,9 +3,9 @@
     <main class="lg:bg-[#ffffff] lg:w-2/3 items-center justify-around max-lg:w-full lg:mx-auto flex flex-grow-1 h-full flex-col">
 
         {{-- Banderole mobile --}}
-        <div class="lg:hidden w-full bg-[#87736a] text-center">CONNEXION / INSCRIPTION</div>
+        <div class="lg:hidden w-full bg-[#87736a] text-center text-[#ffebde] h-10 text-center justify-center text-3xl">Connexion/Inscription</div>
 
-    <div class="flex flex-row pt-10 pb-10 pr-8 pl-8 justify-items-center text-center">
+    <div class="lg:flex lg:flex-row pt-10 pb-10 pr-8 pl-8 justify-items-center text-center">
 
         {{-- Formulaire de connexion --}}
     <div class="flex flex-row pt-10 pb-10 w-full justify-items-center text-center mr-10">

@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+//Connexion et inscription
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 
@@ -18,6 +19,8 @@ Route::get('/actualités', [PostController::class, 'news'])->name('news');
 Route::get('/categories/{category}', [PostController::class,'postsByCategory'])->name('posts.byCategory');
 //Chemin vers l'encyclopédie
 Route::get('/encyclopédie', [EncyclopediaController::class, 'ency'])->name('ency');
+//Chemin des types (encyclopedia)
+Route::get('/type/{type}',[EncyclopediaController::class, 'encyclopediasByType'])->name('encyclopedias.byType');
 //Chemin vers A propos
 Route::get('/faq', [FAQController::class, 'faq'])->name('faq');
 
