@@ -12,10 +12,10 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
 
-    <body class="font-judson lg:bg-[#a5a5a5] bg-white h-full">
+    <body class="font-judson lg:bg-[#a5a5a5] bg-white h-full w-fit">
 
 {{-- Header --}}
-    <header x-data="{searchOpen: false, menuOpen:false,}" x-cloak>
+    <header x-data="{searchOpen: false, menuOpen:false, ency1Open:false}" x-cloak>
 
         {{-- Banderole PC/tablette --}}
     <div class="max-lg:hidden h-28 text-center items-center flex justify-center bg-[#87736a]">
@@ -33,9 +33,9 @@
 
 {{-- Barre de navigation --}}
 <nav class="bg-[#3e2610]">
-    <div style="margin: 0 auto; padding: 0.7rem;" class="flex justify-between items-center relative lg:border lg:border-[#ffebde]-1">
+    <div style="margin: 0 auto; padding: 0.7rem 0 0.7rem 0;" class="flex justify-around items-center relative lg:border lg:border-[#ffebde]-1">
         
-        {{-- Bouton d'ouverture de barre de recherche --}}
+        {{-- Bouton d'ouverture de barre de recherche pour mobile --}}
     <form action="{{ route('news') }}" class="lg:hidden">
         <div value="{{ request()->search }}" type="text" name="search"
         @click="searchOpen = !searchOpen" 
@@ -55,22 +55,26 @@
         </form>
 
 {{-- Barre de menu pour PC/Tablette --}}
-<div class="max-lg:hidden  items-center justify-center h-14 p-0">
+<div class="max-lg:hidden items-center justify-center h-14 w-full">
     <div class="flex items-center h-14">
-                <div class="items-center m-32">
+
+                            {{-- Bouton de retour au menu --}}
+                <div class="items-center m-[6.35rem]">
                         <a href="{{ route('index')}}">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="h-12 w-12" fill="#ffebde" class=""><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
                         </a>
                         </div>
-                    <div class="space-x-94.5 flex items-baseline text-center">
+
+                    {{-- Bouton de direction --}}
+                <div class="space-x-64 flex items-baseline text-center flex-row">
                     <div class="border h-20 border-[#ffebde]-1 p-5 text-2xl w-42 hover:bg-[#ffebde]">
-                        <a href="{{ route('ency') }}" class="text-white hover:text-[#3e2610]">Encyclopédie</a></div>
+                        <a class="text-white hover:text-[#3e2610]" @click="ency1Open = !ency1Open">Encyclopédie </a></div>
                     <div class="border h-20 border-[#ffebde]-1 p-5 text-2xl w-42 hover:bg-[#ffebde]">
                         <a href="{{ route('news') }}" class="text-white hover:text-[#3e2610]">Actualités</a></div>
                     <div class="border h-20 border-[#ffebde]-1 p-5 text-2xl w-42 hover:bg-[#ffebde]">
                         <a href="{{ route('faq') }}" class="text-white hover:text-[#3e2610]">A propos</a></div>
                 </div>
-            <div class="m-20 flex flex-row justify-around space-x-20">
+            <div class="m-16 flex flex-row justify-around space-x-10">
                 {{-- Bouton pour aller à la page d'inscription/connexion --}}
                 <a href="{{ route('register') }}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-10 w-10" fill="#ffebde"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"/></svg></a>
                 {{-- Bouton de déconnexion --}}
@@ -79,7 +83,7 @@
     </div>
 </div>
 
-{{-- Bouton de menu --}}
+{{-- Bouton de menu pour mobile--}}
 <div>
     <button 
         @click="menuOpen =!menuOpen"
@@ -95,7 +99,34 @@
 </div>
 </nav>
 
-    {{-- Menu déroulant pour mobile --}}
+    {{-- Menu pour Encyclopédie de PC/tablette --}}
+{{------------------------------------------------------------------------------------------------------------------------------------------------------- 
+    Lorsque l'on clique sur l'élément de la barre de menu sous le format PC et tablette, le menu déroulant apparaît. En dehors de "Règles" et
+    "Univers", les éléments sont cliquables. Ils ménent directement aux pages avec le ou les sous-types correspondants. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------}}
+<div class="absolute left-64" x-cloak="ency1Open">
+    <ul x-show="ency1Open" class="border border-1px border-[#3e2610] p-5 bg-[#ffebde]">
+        <il class="font-bold text-2xl">Règles</il>
+        <li class="p-4"><a class="text-black hover:underline" href="">Création de personnage</a></li>
+        <li class="p-4"><a class="text-black hover:underline" href="">Classes</a></li>
+        <li class="p-4"><a class="text-black hover:underline" href="">Peuples</a></li>
+        <li class="p-4"><a class="text-black hover:underline" href=""> Compétences & Caractèristiques</a></li>
+        <li class="p-4"><a class="text-black hover:underline" href="">Equipements</a></li>
+        <li class="p-4"><a class="text-black hover:underline" href="">Sortilèges</a></li>
+        <li class="font-bold text-2xl">Univers</li>
+        <li class="p-4"><a class="text-black hover:underline" href="">Histoire</a></li>
+        <li class="p-4"><a class="text-black hover:underline" href="">Géographie</a></li>
+        <li class="p-4"><a class="text-black hover:underline" href="">Magie</a></li>
+        <li class="p-4"><a class="text-black hover:underline" href="">Religions</a></li>
+        <li class="p-4"><a class="text-black hover:underline" href="">Politique</a></li>
+    </ul>
+</div>
+
+{{-- Menu déroulant pour mobile --}}
+{{-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Lorsque l'on clique sur le burger dans le mode mobile, le menu apparait. En dehors de "Règles" et , les éléments sont cliquables. 
+Ils ménent directement aux pages (parfois avec le ou les sous-types correspondants). 
+----------------------------------------------------------------------------------------------------------------------------------------------------------}}
     <div x-data="{encyOpen: false, ruleOpen: false, univerOpen:false,}" class="lg:display:none">
         <ul x-show="menuOpen"
         class="flex-col font-medium absolute w-full z-50 text-center bg-[#3e2610] text-white block" >
