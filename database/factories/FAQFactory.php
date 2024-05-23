@@ -17,8 +17,8 @@ class FAQFactory extends Factory
     public function definition(): array
     {
         return [
-            'question'=> fake()->unique()->sentence().'?',
-            'answer'=>fake()->paragraph(),
+            'question'=> fake()->unique()->sentence('50').'?',
+            'answer'=>fake()->paragraph('100'),
             'created_at'=>fake()->dateTimeInInterval('-1 year','+6 months'),
             'updated_at' =>fake()->dateTimeBetween('- 6 months', '+6 months'),
         ];

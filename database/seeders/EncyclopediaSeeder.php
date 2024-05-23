@@ -11,9 +11,6 @@ use Illuminate\Database\Seeder;
 
 class EncyclopediaSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $types = Type::all();
@@ -24,6 +21,6 @@ class EncyclopediaSeeder extends Seeder
             'type_id' => $types->random(),
         ])
         ->create()
-        ->each(fn ($encyclopedia) => $encyclopedia->subtypes->attach($subtypes->random(rand(1, 2))));
-}
+        ->each(fn ($encyclopedia) => $encyclopedia->subtypes()->attach($subtypes->random(rand(1, 2))));
     }
+}
