@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Encyclopedia extends Model
 {
@@ -18,5 +19,10 @@ class Encyclopedia extends Model
     public function type(): BelongsTo
     {
         return $this->belongsTo(Type::class);
+    }
+
+    public function subtypes():BelongsToMany
+    {
+        return $this->belongsToMany(SubType::class);
     }
 }

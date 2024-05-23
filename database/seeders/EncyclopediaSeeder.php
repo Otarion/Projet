@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Eloquent\Collection;
 use App\Models\Encyclopedia;
+use App\Models\SubType;
 use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,10 +17,13 @@ class EncyclopediaSeeder extends Seeder
     public function run(): void
     {
         $types = Type::all();
+        $subtypes = SubType::all();
+
         Encyclopedia::factory(30)
-        ->sequence(fn() =>[
-            'type_id'=> $types->random(),
+        ->sequence(fn () => [
+            'type_id' => $types->random(),
         ])
-        ->create();
-    }
+        ->create()
+        ->each(fn ($encyclopedia) => $encyclopedia->subtypes->attach($subtypes->random(rand(0, 3))));
 }
+    }
