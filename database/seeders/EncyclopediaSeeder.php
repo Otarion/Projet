@@ -24,6 +24,6 @@ class EncyclopediaSeeder extends Seeder
             'type_id' => $types->random(),
         ])
         ->create()
-        ->each(fn ($encyclopedia) => $encyclopedia->subtypes->attach($subtypes->random(rand(0, 3))));
+        ->each(fn ($encyclopedia) => $encyclopedia->subtypes->attach($subtypes->random(rand(1, 2))));
 }
     }
