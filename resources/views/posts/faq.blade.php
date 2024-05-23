@@ -35,6 +35,10 @@
     <input type="text">
     <label class="underline text-[#3e2610]">Message*:</label>
     <input type="text" class="h-36">
+        <div class="flex flex-row justify-between space-x-4 m-2">
+    <input type="checkbox">
+    <p class="lg: text-base text-sm"> J'accepte que mes données personnelles soient collectées, utilisées et conservées conformément à la politique de confidentialité.</p>
+        </div>
     <button type="submit" class="p-3 m-3 bg-[#3e2610] text-[#ffebde] lg:w-1/5 w-1/3  flex self-center justify-center" href="">Envoyer</button>
 </form>
 </div>

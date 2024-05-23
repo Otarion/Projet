@@ -5,7 +5,7 @@
         <div class="lg:hidden w-full bg-[#87736a] text-center text-[#ffebde] h-10 text-center justify-center text-3xl">Actualités</div>
 
     {{-- Bouton d'ajout d'articles--}}
-    <button class="flex lg:absolute lg:right-80 lg:top-56 mt-3">
+    <button class="flex lg:absolute lg:right-64 lg:top-52 mt-3">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="[#87736a]" class="h-10 w-10"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg>
     </button>
 
@@ -41,7 +41,7 @@
 @endforeach
 
 {{-- Pagination --}}
-<div class="mt-3 mb-3 flex"> {{ $posts->links() }}</div>
+<div class="mt-3 mb-3 flex justify-center"> {{ $posts->links() }}</div>
 
 </div>
 

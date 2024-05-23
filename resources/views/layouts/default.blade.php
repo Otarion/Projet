@@ -12,7 +12,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
 
-    <body class="font-judson lg:bg-[#a5a5a5] bg-white h-full w-fit">
+    <body class="font-judson lg:bg-[#a5a5a5] bg-white lg:h-full lg:w-fit">
 
 {{-- Header --}}
     <header x-data="{searchOpen: false, menuOpen:false, ency1Open:false}" x-cloak>
@@ -33,14 +33,14 @@
 
 {{-- Barre de navigation --}}
 <nav class="bg-[#3e2610]">
-    <div style="margin: 0 auto; padding: 0.7rem 0 0.7rem 0;" class="flex justify-around items-center relative lg:border lg:border-[#ffebde]-1">
+    <div style="margin: 0 auto; padding: 0.7rem 0 0.7rem 0;" class="flex justify-between items-center relative lg:border lg:border-[#ffebde]-1">
         
         {{-- Bouton d'ouverture de barre de recherche pour mobile --}}
     <form action="{{ route('news') }}" class="lg:hidden">
         <div value="{{ request()->search }}" type="text" name="search"
         @click="searchOpen = !searchOpen" 
         class="flex lg:hidden justify-start items-center gap-3">
-            <svg style="height: 30px; width: 30px;"
+            <svg style="height: 30px; width: 30px;" class="m-3"
             xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e8eaed"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
             </svg>
         </div>
@@ -84,7 +84,7 @@
 </div>
 
 {{-- Bouton de menu pour mobile--}}
-<div>
+<div class="mr-3">
     <button 
         @click="menuOpen =!menuOpen"
         style="font-size: 0.875rem; color: #e8eaed; border-radius: 0.375rem; background-color: transparent; border: none; cursor: pointer; transition: background-color 0.3s, border-color 0.3s; outline: none;" 
@@ -131,48 +131,48 @@ Ils ménent directement aux pages (parfois avec le ou les sous-types corresponda
         <ul x-show="menuOpen"
         class="flex-col font-medium absolute w-full z-50 text-center bg-[#3e2610] text-white block" >
             <li class="border border-[#ffebde]-1 p-6">
-                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="{{ route('index')}}">Accueil</a></li>
+                <a style="padding: 0.5rem 0.75rem;" class="text-2xl hover:underline" href="{{ route('index')}}">Accueil</a></li>
             <li class="border border-[#ffebde]-1 p-6">
-                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" @click="encyOpen = !encyOpen">Encyclopédie ▼</a></li>
+                <a style="padding: 0.5rem 0.75rem;" class="text-2xl hover:underline" @click="encyOpen = !encyOpen">Encyclopédie ▼</a></li>
 
                 <ul class="bg-[#ffebde]">
                     <li x-show="encyOpen" :style="encyOpen? 'padding: 1rem;' : ' ' ">
                         <a style="padding: 0.5rem 0.75rem;" class="text-xl font-bold text-[#3e2610]" @click="ruleOpen = !ruleOpen">Règles ▼</a></li>
 
                         <ul class="bg-white" x-show="univerOpen" :style="encyOpen? '' : 'display:none' ">
-                            <li class="p-4"><a class="text-black" href="">Création de personnage</a></li>
-                            <li class="p-4"><a class="text-black" href="">Classes</a></li>
-                            <li class="p-4"><a class="text-black" href="">Peuples</a></li>
-                            <li class="p-4"><a class="text-black" href=""> Compétences & Caractèristiques</a></li>
-                            <li class="p-4"><a class="text-black" href="">Equipements</a></li>
-                            <li class="p-4"><a class="text-black" href="">Sortilèges</a></li>
+                            <li class="p-4"><a class="text-black hover:underline" href="">Création de personnage</a></li>
+                            <li class="p-4"><a class="text-black hover:underline" href="">Classes</a></li>
+                            <li class="p-4"><a class="text-black hover:underline" href="">Peuples</a></li>
+                            <li class="p-4"><a class="text-black hover:underline" href=""> Compétences & Caractèristiques</a></li>
+                            <li class="p-4"><a class="text-black hover:underline" href="">Equipements</a></li>
+                            <li class="p-4"><a class="text-black hover:underline" href="">Sortilèges</a></li>
                         </ul>
 
                     <li x-show="encyOpen" :style="encyOpen? 'padding: 1rem;' : ' ' "> 
                         <a style="padding: 0.5rem 0.75rem;" class="text-xl font-bold text-[#3e2610]" @click="univerOpen = !univerOpen">Univers ▼</a></li>
 
                         <ul class="bg-white" x-show="ruleOpen" :style="encyOpen? '' : 'display:none' ">
-                            <li class="p-4"><a class="text-black" href="">Histoire</a></li>
-                            <li class="p-4"><a class="text-black" href="">Géographie</a></li>
-                            <li class="p-4"><a class="text-black" href="">Magie</a></li>
-                            <li class="p-4"><a class="text-black" href="">Religions</a></li>
-                            <li class="p-4"><a class="text-black" href="">Politique</a></li>
+                            <li class="p-4"><a class="text-black hover:underline" href="">Histoire</a></li>
+                            <li class="p-4"><a class="text-black hover:underline" href="">Géographie</a></li>
+                            <li class="p-4"><a class="text-black hover:underline" href="">Magie</a></li>
+                            <li class="p-4"><a class="text-black hover:underline" href="">Religions</a></li>
+                            <li class="p-4"><a class="text-black hover:underline" href="">Politique</a></li>
                         </ul>
 
                 </ul>
 
             <li class="border border-[#ffebde]-1 p-6">
-                <a style="padding: 0.5rem 0.75rem" class="text-2xl" href="{{ route('news')}}">Actualités</a></li>
+                <a style="padding: 0.5rem 0.75rem" class="text-2xl hover:underline" href="{{ route('news')}}">Actualités</a></li>
             <li class="border border-[#ffebde]-1 p-6">
-                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="{{ route('faq') }}">A propos</a></li>
+                <a style="padding: 0.5rem 0.75rem;" class="text-2xl hover:underline" href="{{ route('faq') }}">A propos</a></li>
             <li class="border border-[#ffebde]-1 p-6">
-                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="{{ route('register') }}">Se connecter/S'inscrire</a></li>
+                <a style="padding: 0.5rem 0.75rem;" class="text-2xl hover:underline" href="{{ route('register') }}">Se connecter/S'inscrire</a></li>
             <li class="border border-[#ffebde]-1 p-6">
-                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="">Mon compte</a></li>
+                <a style="padding: 0.5rem 0.75rem;" class="text-2xl hover:underline" href="">Mon compte</a></li>
             <li class="border border-[#ffebde]-1 p-6">
-                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="">Gestion des postes</a></li>
+                <a style="padding: 0.5rem 0.75rem;" class="text-2xl hover:underline" href="">Gestion des postes</a></li>
             <li class="border border-[#ffebde]-1 p-6">
-                <a style="padding: 0.5rem 0.75rem;" class="text-2xl" href="">Gestion des comptes</a></li>
+                <a style="padding: 0.5rem 0.75rem;" class="text-2xl hover:underline" href="">Gestion des comptes</a></li>
         </ul>
     </div>
 </header>
