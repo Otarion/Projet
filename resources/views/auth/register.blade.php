@@ -11,6 +11,7 @@
     <div class="flex flex-row pt-10 pb-10 w-full justify-items-center text-center mr-10">
         <form class="border border-[#3e2610] p-4 bg-[#a5a5a595] justify-around space-y-5 flex flex-col items-center w-full" 
         action="{{ route('register') }}" novalidate>
+        @csrf
             <a class="underline text-[#3e2610] text-2xl">Connexion</a>
             <input type="email" id="email" name="email" placeholder="Email" class="border border-[#3e2610] w-2/3 text-center h-10">
             <input type="password" id="password" name="password" placeholder="Mot de passe" class="border border-[#3e2610] w-2/3 text-center h-10">
@@ -26,6 +27,7 @@
             {{-- Formulaire d'inscription --}}
             <div class="flex flex-row pt-10 pb-10 w-full justify-items-center text-center">
                 <form class="border border-[#3e2610] p-4 bg-[#a5a5a595] justify-around space-y-5 flex flex-col items-center w-full" action="" novalidate >
+                @csrf
                 <a class="underline text-[#3e2610] text-2xl">Inscription</a>
                 <input type="text" id="name" name="name" placeholder="Nom d'utilisateur *" class="border border-[#3e2610] w-2/3 text-center h-10">
                 <input type="email" id="email" name="email"placeholder="E-mail *"  class="border border-[#3e2610] w-2/3 text-center h-10">

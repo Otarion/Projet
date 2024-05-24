@@ -5,7 +5,7 @@
             <div class="lg:hidden w-full bg-[#87736a] text-center">
             </div>
 
-    {{-- Bloc informations importantes --}}
+    {{-- Bloc du slider pour les informations importantes --}}
     <div class="lg:h-96 lg:w-[48.5rem] w-full h-80"> 
         <div class="flex flex-row items-center max-h-72 overflow-x-auto overflow-y-hidden lg:max-h-80">
             @foreach($posts as $post)

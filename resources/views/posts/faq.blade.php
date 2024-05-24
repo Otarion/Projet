@@ -12,8 +12,8 @@
 <div class="lg:flex flex-row bg-[#a5a5a587] border border-1 border-[#87736a] lg:w-5/6 w-11/12 mx-auto lg:h-36 p-3 mt-3">
     <div class="flex flex-col">
 
-        <a class="lg:text-4xl text-xl font-bold text-[#3e2610] text-justify" href="">{{ $faq->question }}</a>
-        <p class="mb-3 text-justify" href="">{{ $faq->answer }}</p>
+        <a class="lg:text-4xl text-xl font-bold text-[#3e2610] text-justify" alt="question" href="">{{ $faq->question }}</a>
+        <p class="mb-3 text-justify" alt="réponse" href="">{{ $faq->answer }}</p>
 
     </div>
 </div>
@@ -27,6 +27,7 @@
 <h1 class="font-bold text-7xl flex justify-center">Contact</h1>
 <div class="flex justify-center">
 <form class="border border-1px border-[#3e2610] p-3 flex flex-col m-5 w-4/5 bg-[#a5a5a5af]">
+    @csrf
     <label class="underline text-[#3e2610]">Pseudo:</label>
     <input type="text">
     <label class="underline text-[#3e2610]">E-mail*:</label>
