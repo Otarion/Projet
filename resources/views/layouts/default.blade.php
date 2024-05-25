@@ -106,14 +106,14 @@
 -------------------------------------------------------------------------------------------------------------------------------------------------------}}
 <div class="absolute left-64" x-cloak="ency1Open">
     <ul x-show="ency1Open" class="border border-1px border-[#3e2610] p-5 bg-[#ffebde]">
-        <il class="font-bold text-2xl">Règles</il>
+        <il><a class="font-bold text-2xl" href="{{ route('encyclopedias.byType', ['type' => 'Règles']) }}">Règles</a></il>
         <li class="p-4"><a class="text-black hover:underline" href="">Création de personnage</a></li>
         <li class="p-4"><a class="text-black hover:underline" href="">Classes</a></li>
         <li class="p-4"><a class="text-black hover:underline" href="">Peuples</a></li>
         <li class="p-4"><a class="text-black hover:underline" href=""> Compétences & Caractèristiques</a></li>
         <li class="p-4"><a class="text-black hover:underline" href="">Equipements</a></li>
         <li class="p-4"><a class="text-black hover:underline" href="">Sortilèges</a></li>
-        <li class="font-bold text-2xl">Univers</li>
+        <li class="font-bold text-2xl" href="">Univers</li>
         <li class="p-4"><a class="text-black hover:underline" href="">Histoire</a></li>
         <li class="p-4"><a class="text-black hover:underline" href="">Géographie</a></li>
         <li class="p-4"><a class="text-black hover:underline" href="">Magie</a></li>

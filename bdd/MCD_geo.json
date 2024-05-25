@@ -1,0 +1,51 @@
+{
+  "width": 1122,
+  "height": 377,
+  "cx": [
+    [ "CATEGORIES", 56 ],
+    [ "BELONGS_TO", 184 ],
+    [ "POSTS", 310 ],
+    [ "SUBTYPES", 453 ],
+    [ "PART_OF", 586 ],
+    [ "ENCYCLOPEDIA_SUBTYPES", 747 ],
+    [ "HAS_SUBTYPES", 932 ],
+    [ "TYPES", 1068 ],
+    [ "HAS_COMMENTS", 310 ],
+    [ "COMMENTS", 453 ],
+    [ "AUTHORED_BY", 586 ],
+    [ "USERS", 747 ],
+    [ "ENCYCLOPEDIAS", 932 ],
+    [ "OF_TYPE", 1068 ]
+  ],
+  "cy": [
+    [ "CATEGORIES", 99 ],
+    [ "BELONGS_TO", 99 ],
+    [ "POSTS", 99 ],
+    [ "SUBTYPES", 99 ],
+    [ "PART_OF", 99 ],
+    [ "ENCYCLOPEDIA_SUBTYPES", 99 ],
+    [ "HAS_SUBTYPES", 99 ],
+    [ "TYPES", 99 ],
+    [ "HAS_COMMENTS", 278 ],
+    [ "COMMENTS", 278 ],
+    [ "AUTHORED_BY", 278 ],
+    [ "USERS", 278 ],
+    [ "ENCYCLOPEDIAS", 278 ],
+    [ "OF_TYPE", 278 ]
+  ],
+  "shift": [
+    [ "BELONGS_TO,POSTS,0", 0 ],
+    [ "BELONGS_TO,CATEGORIES,0", 0 ],
+    [ "PART_OF,ENCYCLOPEDIA_SUBTYPES,0", 0 ],
+    [ "PART_OF,SUBTYPES,0", 0 ],
+    [ "HAS_SUBTYPES,ENCYCLOPEDIA_SUBTYPES,0", 0 ],
+    [ "HAS_SUBTYPES,ENCYCLOPEDIAS,0", 0 ],
+    [ "HAS_COMMENTS,COMMENTS,0", 0 ],
+    [ "HAS_COMMENTS,POSTS,0", 0 ],
+    [ "AUTHORED_BY,COMMENTS,0", 0 ],
+    [ "AUTHORED_BY,USERS,0", 0 ],
+    [ "OF_TYPE,ENCYCLOPEDIAS,0", 0 ],
+    [ "OF_TYPE,TYPES,0", 0 ]
+  ],
+  "ratio": []
+}

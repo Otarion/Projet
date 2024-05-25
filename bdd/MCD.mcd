@@ -1,0 +1,17 @@
+Categories: id, name, slug, created_at, updated_at
+belongs_to, 0N Posts, 11 Categories
+Posts: id, name, slug, excerpt, content, thumbnail, created_at, updated_at
+SubTypes: id, name, slug, created_at, updated_at
+part_of, 0N Encyclopedia_SubTypes, 11 SubTypes
+Encyclopedia_SubTypes: id, encyclopedia_id, subtype_id, created_at, updated_at
+has_subtypes, 0N Encyclopedia_SubTypes, 11 Encyclopedias
+Types: id, name, slug, created_at, updated_at
+
+:
+:
+has_comments, 0N Comments, 11 Posts
+Comments: id, content, created_at, updated_at
+authored_by, 0N Comments, 11 Users
+Users: id, pseudo, avatar, rgpd, newsletters, role, created_at, updated_at
+Encyclopedias: id, title, content, thumbnail, created_at, updated_at
+of_type, 0N Encyclopedias, 11 Types

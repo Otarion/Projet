@@ -1,0 +1,21 @@
+%%mocodo
+:
+Categories: id, name, slug, created_at, updated_at, #id 2 > Posts > id
+:
+Posts: id, name, slug, excerpt, content, thumbnail, created_at, updated_at, #id 2 > Comments > id
+:
+SubTypes: id, name, slug, created_at, updated_at, #id 2 > Encyclopedia_SubTypes > id
+:
+Encyclopedia_SubTypes: id, encyclopedia_id, subtype_id, created_at, updated_at
+:::
+Types: id, name, slug, created_at, updated_at, #id 2 > Encyclopedias > id
+:
+
+
+:::::
+Comments: id, content, created_at, updated_at
+:
+Users: id, pseudo, avatar, rgpd, newsletters, role, created_at, updated_at, #id 2 > Comments > id
+:
+Encyclopedias: id, title, content, thumbnail, created_at, updated_at, #id 2 > Encyclopedia_SubTypes > id
+:::

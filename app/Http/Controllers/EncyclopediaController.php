@@ -18,7 +18,7 @@ class EncyclopediaController extends Controller
 
     public function show(Encyclopedia $encyclopedia): View
     {
-        return view('posts.ency', [
+        return view('posts.page', [
             'encyclopedia' => $encyclopedia,
         ]);
     }

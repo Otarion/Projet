@@ -1,0 +1,82 @@
+Table "Categories" {
+  "id"         VARCHAR(42) [pk, NOT NULL]
+  "name"       VARCHAR(42)
+  "slug"       VARCHAR(42)
+  "created_at" VARCHAR(42)
+  "updated_at" VARCHAR(42)
+  "id 2"       VARCHAR(42) [NOT NULL]
+}
+
+Table "Comments" {
+  "id"         VARCHAR(42) [pk, NOT NULL]
+  "content"    VARCHAR(42)
+  "created_at" VARCHAR(42)
+  "updated_at" VARCHAR(42)
+}
+
+Table "Encyclopedias" {
+  "id"         VARCHAR(42) [pk, NOT NULL]
+  "title"      VARCHAR(42)
+  "content"    VARCHAR(42)
+  "thumbnail"  VARCHAR(42)
+  "created_at" VARCHAR(42)
+  "updated_at" VARCHAR(42)
+  "id 2"       VARCHAR(42) [NOT NULL]
+}
+
+Table "Encyclopedia_SubTypes" {
+  "id"              VARCHAR(42) [pk, NOT NULL]
+  "encyclopedia_id" VARCHAR(42)
+  "subtype_id"      VARCHAR(42)
+  "created_at"      VARCHAR(42)
+  "updated_at"      VARCHAR(42)
+}
+
+Table "Posts" {
+  "id"         VARCHAR(42) [pk, NOT NULL]
+  "name"       VARCHAR(42)
+  "slug"       VARCHAR(42)
+  "excerpt"    VARCHAR(42)
+  "content"    VARCHAR(42)
+  "thumbnail"  VARCHAR(42)
+  "created_at" VARCHAR(42)
+  "updated_at" VARCHAR(42)
+  "id 2"       VARCHAR(42) [NOT NULL]
+}
+
+Table "SubTypes" {
+  "id"         VARCHAR(42) [pk, NOT NULL]
+  "name"       VARCHAR(42)
+  "slug"       VARCHAR(42)
+  "created_at" VARCHAR(42)
+  "updated_at" VARCHAR(42)
+  "id 2"       VARCHAR(42) [NOT NULL]
+}
+
+Table "Types" {
+  "id"         VARCHAR(42) [pk, NOT NULL]
+  "name"       VARCHAR(42)
+  "slug"       VARCHAR(42)
+  "created_at" VARCHAR(42)
+  "updated_at" VARCHAR(42)
+  "id 2"       VARCHAR(42) [NOT NULL]
+}
+
+Table "Users" {
+  "id"          VARCHAR(42) [pk, NOT NULL]
+  "pseudo"      VARCHAR(42)
+  "avatar"      VARCHAR(42)
+  "rgpd"        VARCHAR(42)
+  "newsletters" VARCHAR(42)
+  "role"        VARCHAR(42)
+  "created_at"  VARCHAR(42)
+  "updated_at"  VARCHAR(42)
+  "id 2"        VARCHAR(42) [NOT NULL]
+}
+
+Ref:"Categories"."id 2" > "Posts"."id"
+Ref:"Encyclopedias"."id 2" > "Encyclopedia_SubTypes"."id"
+Ref:"Posts"."id 2" > "Comments"."id"
+Ref:"SubTypes"."id 2" > "Encyclopedia_SubTypes"."id"
+Ref:"Types"."id 2" > "Encyclopedias"."id"
+Ref:"Users"."id 2" > "Comments"."id"
